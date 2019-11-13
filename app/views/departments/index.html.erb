@@ -2,6 +2,6 @@
 
 <ul>
   <% @departments.each do |department| %>
-    <li> <%= department.name %> </li>
+    <li> <%= link_to department.name, department_path(department) %> </li>
   <% end %>
 </ul>
