@@ -1,15 +1,17 @@
 class DepartmentsController < ApplicationController
+  before_action :get_department, only: [:show, :edit]
   
   def index
     @departments = Department.all
   end
 
   def show
-    @department = Department.find(params[:id])
+    
   end
 
   def new
     @department = Department.new
+    render partial: "form"
   end
 
   def create
@@ -24,6 +26,13 @@ class DepartmentsController < ApplicationController
   end
 
   def edit
+    render partial: "form"
   end
+
+  private
+    
+    def get_department
+      @department = Department.find(params[:id])
+    end
 
 end
