@@ -1,4 +1,5 @@
 class DepartmentsController < ApplicationController
+  
   def index
     @departments = Department.all
   end
@@ -11,6 +12,18 @@ class DepartmentsController < ApplicationController
     @department = Department.new
   end
 
+  def create
+    @department = Department.new(params.require(:department).permit(:name))
+
+    if @department.save
+      redirect_to departments_path
+    else
+      render :new
+    end
+
+  end
+
   def edit
   end
+
 end
