@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_action :get_department, only: [:show, :edit, :update, :destroy]
+  before_action :get_department, only: [:show, :edit, :update]
   
   def index
     @departments = Department.all
@@ -37,11 +37,6 @@ class DepartmentsController < ApplicationController
       render :edit
     end
 
-  end
-
-  def destroy
-    @department.destroy
-    redirect_to departments_path
   end
 
   private
