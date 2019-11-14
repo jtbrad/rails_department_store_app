@@ -1,5 +1,7 @@
 <h1> <%= @department.name %> </h1>
-<p> 
+<p>
+  <%= link_to "Add Item", new_department_item_path(@department)%>
+  <%= " " %>
   <%= link_to "Edit", edit_department_path(@department) %>
   <%= " " %>
   <%= link_to "Delete", @department, method: :delete %>

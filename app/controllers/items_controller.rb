@@ -1,17 +1,17 @@
 class ItemsController < ApplicationController
   before_action set_department
-  before_action set_item, only: [:show, :edit, :update]
+  before_action set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = @department.items
   end
 
   def show
-    @item = Item.find(params[:id])
+    
   end
 
   def new
-    @item = @department.topics.new
+    @item = @department.items.new
     render partial: "form"
   end
 
